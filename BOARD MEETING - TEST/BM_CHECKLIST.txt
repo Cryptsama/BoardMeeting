@@ -1,0 +1,28 @@
+﻿BM_CHECKLIST_V1 | 20251217_215334
+ROOT: C:\Users\Crypt\Desktop\BOARD MEETING
+
+SYSTEM
+PowerShell: 5.1.26100.7019
+Python: Python 3.14.0
+openai pkg: 2.13.0
+
+FILES
+app.py: YES
+.env: YES
+Templates/index.html: YES: C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Templates\index.html
+
+ENV KEYS PRESENT (values masked)
+OPENAI_API_KEY: YES
+GEMINI/GOOGLE_API_KEY: YES
+ANTHROPIC_API_KEY: YES
+
+BACKEND CAPABILITIES (app.py scan)
+load_dotenv(): YES
+OPENAI_API_KEY referenced: YES
+OpenAI client present: YES
+/img/txt2img route present: NO
+gpt-image-1 present: NO
+images.generate present: NO
+
+NEXT ACTION TARGET
+Image backend missing/partial; next step will inject idempotent /img/txt2img endpoint.

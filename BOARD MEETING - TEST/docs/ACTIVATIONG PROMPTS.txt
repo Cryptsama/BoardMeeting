@@ -1,0 +1,13 @@
+Activate - .\.venv\Scripts\Activate.ps1 
+
+
+Run - uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+
+============================================================
+
+Activate - Keyboard
+
+cd "C:\Users\Crypt\Desktop\BOARD MEETING"
+.\.venv\Scripts\Activate.ps1
+py bm_hotkeys.py

@@ -1,0 +1,516 @@
+﻿BOARDMEETING AUDIT REPORT  |  2025-12-17 21:47:12
+ROOT: C:\Users\Crypt\Desktop\BOARD MEETING
+
+
+===== SYSTEM =====
+PowerShell: 5.1.26100.7019
+Python: Python 3.14.0
+Pip: pip 25.3 from C:\Users\Crypt\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pip (python 3.14) 
+
+===== PROJECT FILES (top level) =====
+
+Name                                                             Length LastWriteTime         
+----                                                             ------ -------------         
+.env                                                                665 12/17/2025 12:09:02 PM
+.gitignore                                                           83 12/14/2025 9:05:40 PM 
+app.py                                                            37300 12/17/2025 7:22:44 PM 
+app.py.bak_20251216_160111                                        18665 12/16/2025 2:12:52 AM 
+app.py.bak_sse_20251216_164721                                    34218 12/16/2025 4:35:52 PM 
+app.py.bak_streamfix_20251216_170410                              35268 12/16/2025 4:47:22 PM 
+BM_AUDIT_REPORT.txt                                                 323 12/17/2025 9:47:16 PM 
+bm_capability.ps1                                                  3610 12/14/2025 2:46:44 AM 
+bm_capability_report.txt                                           3151 12/14/2025 2:46:46 AM 
+bm_run_stderr.log                                                  4002 12/15/2025 12:18:10 AM
+bm_run_stdout.log                                                     0 12/15/2025 12:18:08 AM
+BoardMeeting_Notes.txt                                           224689 12/17/2025 9:46:33 PM 
+html.txt                                                           2509 12/16/2025 6:50:42 PM 
+requirements.txt                                                     76 12/14/2025 2:54:04 AM 
+sandbox_url.txt                                                      25 12/17/2025 12:52:02 AM
+sendMessage(lastAutoPrompt)                                           0 12/15/2025 12:44:16 AM
+START WEBSITE.txt                                                    66 12/15/2025 6:26:44 PM 
+start.bat                                                           861 12/14/2025 3:59:56 AM 
+TERMINAL_ONLY_EDIT_MODE_MASTER_PROMPT_V2.txt                       4978 12/17/2025 6:21:42 PM 
+TERMINAL_ONLY_EDIT_MODE_MASTER_PROMPT_V2.txt.bak_20251217_182141   2590 12/17/2025 6:18:24 PM 
+_BM_AUDIT.txt                                                     13398 12/15/2025 9:54:42 AM 
+_bm_err.log                                                         362 12/17/2025 4:03:24 PM 
+_bm_out.log                                                         380 12/17/2025 4:03:30 PM 
+
+
+
+
+===== FOLDER TREE (depth 3) =====
+
+FullName                                                                                  
+--------                                                                                  
+C:\Users\Crypt\Desktop\BOARD MEETING\.git                                                 
+C:\Users\Crypt\Desktop\BOARD MEETING\archive                                              
+C:\Users\Crypt\Desktop\BOARD MEETING\automations                                          
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING                                        
+C:\Users\Crypt\Desktop\BOARD MEETING\council_engine                                       
+C:\Users\Crypt\Desktop\BOARD MEETING\data                                                 
+C:\Users\Crypt\Desktop\BOARD MEETING\docs                                                 
+C:\Users\Crypt\Desktop\BOARD MEETING\Logs                                                 
+C:\Users\Crypt\Desktop\BOARD MEETING\Start Options (Start.Bat)                            
+C:\Users\Crypt\Desktop\BOARD MEETING\static                                               
+C:\Users\Crypt\Desktop\BOARD MEETING\Templates                                            
+C:\Users\Crypt\Desktop\BOARD MEETING\tools                                                
+C:\Users\Crypt\Desktop\BOARD MEETING\__pycache__                                          
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\hooks                                           
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\info                                            
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\logs                                            
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects                                         
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\refs                                            
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\logs\refs                                       
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\logs\refs\heads                                 
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\03                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\04                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\05                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\07                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\08                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\0e                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\10                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\11                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\12                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\13                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\14                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\17                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\18                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\1a                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\1c                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\1f                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\20                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\21                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\22                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\27                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\28                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\2a                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\2d                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\30                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\32                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\34                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\38                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\39                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\3c                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\3e                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\41                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\42                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\43                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\46                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\4b                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\4e                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\4f                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\51                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\52                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\56                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\57                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\59                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\5d                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\5e                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\60                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\67                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\69                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\6b                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\6d                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\71                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\79                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\7a                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\7b                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\7c                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\84                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\86                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\88                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\8a                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\8c                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\8f                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\92                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\94                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\95                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\96                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\98                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\a1                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\a2                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\a5                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\a7                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\aa                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\ac                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\ad                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\b1                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\b5                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\b6                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\b8                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\bb                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\c0                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\c2                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\c5                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\cb                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\cc                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\cd                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\d4                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\d7                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\d9                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\db                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\dd                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\df                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\e0                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\e1                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\e2                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\ea                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\ed                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\f2                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\f3                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\f7                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\info                                    
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\objects\pack                                    
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\refs\heads                                      
+C:\Users\Crypt\Desktop\BOARD MEETING\.git\refs\tags                                       
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git                                   
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\archive                                
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations                            
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\council_engine                         
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\data                                   
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\docs                                   
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Logs                                   
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Start Options (Start.Bat)              
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\static                                 
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Templates                              
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools                                  
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\__pycache__                            
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\hooks                             
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\info                              
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\logs                              
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects                           
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\refs                              
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\logs\refs                         
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\03                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\04                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\05                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\07                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\08                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\0e                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\10                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\11                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\12                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\13                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\14                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\17                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\18                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\1a                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\1c                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\1f                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\20                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\21                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\22                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\27                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\28                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\2a                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\2d                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\30                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\32                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\34                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\38                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\39                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\3c                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\3e                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\41                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\42                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\43                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\46                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\4b                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\4e                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\4f                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\51                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\52                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\56                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\57                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\59                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\5d                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\5e                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\60                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\67                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\69                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\6b                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\6d                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\71                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\79                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\7a                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\7b                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\7c                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\84                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\86                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\88                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\8a                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\8c                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\8f                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\92                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\94                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\95                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\96                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\98                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\a1                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\a2                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\a5                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\a7                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\aa                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\ac                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\ad                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\b1                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\b5                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\b6                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\b8                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\bb                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\c0                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\c2                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\c5                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\cb                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\cc                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\cd                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\d4                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\d7                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\d9                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\db                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\dd                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\df                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\e0                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\e1                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\e2                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\ea                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\ed                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\f2                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\f3                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\f7                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\info                      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\objects\pack                      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\refs\heads                        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\.git\refs\tags                         
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\council_engine\__pycache__             
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\data\conversations                     
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Logs\BoardMeetingLogs                  
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Start Options (Start.Bat)\.venv        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Start Options (Start.Bat)\.venv\Include
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Start Options (Start.Bat)\.venv\Lib    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\Start Options (Start.Bat)\.venv\Scripts
+C:\Users\Crypt\Desktop\BOARD MEETING\council_engine\__pycache__                           
+C:\Users\Crypt\Desktop\BOARD MEETING\data\conversations                                   
+C:\Users\Crypt\Desktop\BOARD MEETING\Logs\BoardMeetingLogs                                
+C:\Users\Crypt\Desktop\BOARD MEETING\Start Options (Start.Bat)\.venv                      
+C:\Users\Crypt\Desktop\BOARD MEETING\Start Options (Start.Bat)\.venv\Include              
+C:\Users\Crypt\Desktop\BOARD MEETING\Start Options (Start.Bat)\.venv\Lib                  
+C:\Users\Crypt\Desktop\BOARD MEETING\Start Options (Start.Bat)\.venv\Scripts              
+C:\Users\Crypt\Desktop\BOARD MEETING\Start Options (Start.Bat)\.venv\Lib\site-packages    
+C:\Users\Crypt\Desktop\BOARD MEETING\static\roms                                          
+C:\Users\Crypt\Desktop\BOARD MEETING\static\roms\SNES                                     
+C:\Users\Crypt\Desktop\BOARD MEETING\static\roms\SNES\Vimms stuff                         
+
+
+
+
+===== BACKEND CANDIDATES (.py with FastAPI/app routes) =====
+
+===== ROUTE CHECKS (img/txt2img + key things) =====
+
+--- Search: /img/txt2img ---
+NOT FOUND
+
+--- Search: gpt-image-1 ---
+NOT FOUND
+
+--- Search: client.images.generate ---
+NOT FOUND
+
+--- Search: from openai import OpenAI ---
+
+Path                                                                     LineNumber Line             
+----                                                                     ---------- ----             
+C:\Users\Crypt\Desktop\BOARD MEETING\app.py                                     326 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_A.py                       33 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_B.py                       56 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\app.py                       326 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_A.py         33 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_B.py         56 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\app_patched.py         129 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\app_patched.py                       129 from openai      
+                                                                                    import OpenAI    
+
+
+
+
+--- Search: import openai ---
+
+Path                                                                     LineNumber Line             
+----                                                                     ---------- ----             
+C:\Users\Crypt\Desktop\BOARD MEETING\app.py                                     326 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_A.py                       33 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_B.py                       56 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\app.py                       326 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_A.py         33 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_B.py         56 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\app_patched.py         129 from openai      
+                                                                                    import OpenAI    
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\app_patched.py                       129 from openai      
+                                                                                    import OpenAI    
+
+
+
+
+--- Search: load_dotenv ---
+
+Path                                                                     LineNumber Line             
+----                                                                     ---------- ----             
+C:\Users\Crypt\Desktop\BOARD MEETING\app.py                                      25 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\app.py                                      44 load_dotenv(BASE_
+                                                                                    DIR / ".env")    
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_A.py                        8 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_A.py                       15 load_dotenv()    
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_B.py                       20 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_B.py                       27 load_dotenv(ENV_P
+                                                                                    ATH)             
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\app.py                        25 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\app.py                        44 load_dotenv(BASE_
+                                                                                    DIR / ".env")    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_A.py          8 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_A.py         15 load_dotenv()    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_B.py         20 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_B.py         27 load_dotenv(ENV_P
+                                                                                    ATH)             
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\app_patched.py          12 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\app_patched.py          18 load_dotenv()    
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\test_gemini.py           3 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\test_gemini.py           5 load_dotenv()    
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\app_patched.py                        12 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\app_patched.py                        18 load_dotenv()    
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\test_gemini.py                         3 from dotenv      
+                                                                                    import           
+                                                                                    load_dotenv      
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\test_gemini.py                         5 load_dotenv()    
+
+
+
+
+--- Search: OPENAI_API_KEY ---
+
+Path                                                                     LineNumber Line             
+----                                                                     ---------- ----             
+C:\Users\Crypt\Desktop\BOARD MEETING\app.py                                      46 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\app.py                                      63     raise Runtime
+                                                                                    Error("Missing   
+                                                                                    OPENAI_API_KEY   
+                                                                                    in .env")        
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_A.py                       16 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_A.py                       20     raise ValueEr
+                                                                                    ror("Missing     
+                                                                                    OPENAI_API_KEY   
+                                                                                    in .env")        
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_B.py                       29 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\automations\auto_B.py                       41     raise ValueEr
+                                                                                    ror("Missing     
+                                                                                    OPENAI_API_KEY   
+                                                                                    in .env")        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\app.py                        46 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\app.py                        63     raise Runtime
+                                                                                    Error("Missing   
+                                                                                    OPENAI_API_KEY   
+                                                                                    in .env")        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_A.py         16 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_A.py         20     raise ValueEr
+                                                                                    ror("Missing     
+                                                                                    OPENAI_API_KEY   
+                                                                                    in .env")        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_B.py         29 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\automations\auto_B.py         41     raise ValueEr
+                                                                                    ror("Missing     
+                                                                                    OPENAI_API_KEY   
+                                                                                    in .env")        
+C:\Users\Crypt\Desktop\BOARD MEETING\BOARD MEETING\tools\app_patched.py          20 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+C:\Users\Crypt\Desktop\BOARD MEETING\tools\app_patched.py                        20 OPENAI_KEY = os.g
+                                                                                    etenv("OPENAI_API
+                                                                                    _KEY")           
+
+
+
+
+===== TEMPLATES / STATIC CHECK =====
+Templates/Static files found: 12
+
+--- Frontend Search: genImgBtn ---
+NOT FOUND
+
+--- Frontend Search: imgPrompt ---
+NOT FOUND
+
+--- Frontend Search: imgOut ---
+NOT FOUND
+
+--- Frontend Search: /img/txt2img ---
+NOT FOUND
+
+===== DEPENDENCIES (openai package) =====
+pip show openai:
+Name: openai
+Version: 2.13.0
+Summary: The official Python library for the openai API
+Home-page: https://github.com/openai/openai-python
+Author: 
+Author-email: OpenAI <support@openai.com>
+License: Apache-2.0
+Location: C:\Users\Crypt\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages
+Requires: anyio, distro, httpx, jiter, pydantic, sniffio, tqdm, typing-extensions
+Required-by: 
+
+python import openai version:
+2.13.0
+
+
+===== ENV FILE CHECK (masked) =====
+Found .env (showing only key NAMES, values masked):
+OPENAI_API_KEY=***
+GEMINI_API_KEY=***
+ANTHROPIC_API_KEY=***
+
+
+===== DONE =====
+Report written to: BM_AUDIT_REPORT.txt

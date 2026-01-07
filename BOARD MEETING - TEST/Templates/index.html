@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>BoardMeeting</title>
+  <link rel="stylesheet" href="/static/style.css?v={{ css_version }}" />
+  <style>
+    /* Music bar behaves like Image bar */
+    .bm-musicbar{ display:none; }
+    .bm-musicbar.show{ display:grid; }
+    .bm-audio{ width:100%; max-width:520px; margin-top:10px; }
+    .bm-audioline{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:10px; }
+    .bm-linkbtn{
+      height:60px;border-radius:16px;font-size:18px;font-weight:900;cursor:pointer;
+      border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);color:#fff;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);padding:0 18px;text-decoration:none;
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .bm-linkbtn:hover{ filter:brightness(1.08); }
+  </style>
+</head>
+
+<body>
+  <div class="bm-shell">
+    <div class="bm-app" id="appRoot">
+
+      <!-- TOPBAR -->
+      <header class="bm-topbar">
+        <button class="bm-btn bm-menubtn" id="btnMenu" title="Menu">☰</button>
+
+        <div class="bm-brand">
+          <h1 class="bm-title">BoardMeeting</h1>
+          <div class="bm-subtitle">Multi-AI + Global Chat</div>
+        </div>
+
+        <nav class="bm-toplinks">
+          <a class="bm-pill" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="bm-pill" href="#" onclick="event.preventDefault();">Login</a>
+        </nav>
+      </header>
+
+      <!-- LAYOUT -->
+      <div class="bm-layout">
+        <!-- SIDEBAR -->
+        <aside class="bm-sidebar">
+          <button class="bm-navbtn" id="btnKeys">Keys</button>
+          <button class="bm-navbtn" id="btnSandbox">Sandbox</button>
+          <button class="bm-navbtn" id="btnAuto">Auto/Stop</button>
+          <button class="bm-navbtn" id="btnBoard">⚖️ Board</button>
+          <button class="bm-navbtn" id="btnDetail">Detail</button>
+          <button class="bm-navbtn" id="btnImage">Image</button>
+          <button class="bm-navbtn" id="btnMusic">Music</button>
+          <button class="bm-navbtn" id="btnChat">Chat</button>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="bm-main">
+
+          <!-- PANEL: AI -->
+          <section class="bm-panel" id="panelAI">
+            <div class="bm-room" id="chat"></div>
+
+            <!-- IMAGE BAR -->
+            <div class="bm-imagebar" id="imgBar" hidden>
+              <input class="bm-input" id="imgPrompt" placeholder="Image prompt…" />
+              <button class="bm-btn" id="btnGen">Generate</button>
+            </div>
+
+            <!-- MUSIC BAR -->
+            <div class="bm-imagebar bm-musicbar" id="musicBar" hidden>
+              <input class="bm-input" id="musicPrompt" placeholder="Music prompt… (ex: boom bap, 92 bpm, gritty, vinyl)" />
+              <div class="bm-audioline">
+                <input class="bm-input" id="musicSeconds" inputmode="numeric" placeholder="Seconds (ex: 12, 45)" style="max-width:220px" />
+                <button class="bm-btn" id="btnMusicGen">Generate</button>
+              </div>
+              <audio class="bm-audio" id="musicPlayer" controls hidden></audio>
+              <a class="bm-linkbtn" id="musicDownload" href="#" download hidden>Download</a>
+            </div>
+
+            <!-- DOCK -->
+            <div class="bm-dock" id="dock">
+              <button class="bm-iconbtn" id="btnPlus" title="More">＋</button>
+
+              <div class="bm-inputwrap">
+                <input class="bm-input" id="prompt" placeholder="Type your message" />
+                <button class="bm-btn bm-menubtn bm-micbtn" id="btnMic" title="Mic" disabled>🎙</button>
+              </div>
+
+              <button class="bm-btn" id="btnSend" title="Send">Send</button>
+            </div>
+          </section>
+
+          <!-- PANEL: GLOBAL CHAT -->
+          <section class="bm-panel" id="panelChat" hidden>
+            <div class="bm-chathead">
+              <div class="bm-chathead-title">Global Chat</div>
+              <div class="bm-chathead-sub">No API keys needed. Everyone sees the same room.</div>
+
+              <div class="bm-chathead-row">
+                <span class="bm-chatpill" id="chatStatus">Disconnected</span>
+                <button class="bm-btn bm-chatbtn" id="btnJoin">Join</button>
+                <button class="bm-btn bm-chatbtn" id="btnBackToAI">Back</button>
+              </div>
+            </div>
+
+            <div class="bm-room bm-livechat" id="liveChat"></div>
+
+            <div class="bm-dock bm-chatdock" id="chatDock">
+              <button class="bm-iconbtn" id="btnChatName" title="Name">👤</button>
+
+              <div class="bm-inputwrap">
+                <input class="bm-input" id="chatInput" placeholder="Say something…" />
+              </div>
+
+              <button class="bm-btn" id="btnChatSend" title="Send">Send</button>
+            </div>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: KEYS -->
+  <div class="bm-modal" id="keysModal">
+    <div class="bm-modalbox">
+      <h2 class="bm-modaltitle">API Keys</h2>
+
+      <div class="bm-modalrow">
+        <input id="keyOpenAI" placeholder="OpenAI API Key (optional)" />
+      </div>
+      <div class="bm-modalrow">
+        <input id="keyGemini" placeholder="Gemini API Key (optional)" />
+      </div>
+      <div class="bm-modalrow">
+        <input id="keyClaude" placeholder="Anthropic API Key (optional)" />
+      </div>
+
+      <div class="bm-modalactions">
+        <button class="bm-btn" id="btnKeysClose">Close</button>
+        <button class="bm-btn" id="btnKeysSave">Save</button>
+      </div>
+
+      <div class="bm-modalhint">Saved in this browser only (localStorage).</div>
+    </div>
+  </div>
+
+  <!-- MODAL: NAME -->
+  <div class="bm-modal" id="nameModal">
+    <div class="bm-modalbox">
+      <h2 class="bm-modaltitle">Chat name</h2>
+      <div class="bm-modalrow">
+        <input id="chatName" placeholder="Name (ex: Jorge)" />
+      </div>
+      <div class="bm-modalactions">
+        <button class="bm-btn" id="btnNameClose">Close</button>
+        <button class="bm-btn" id="btnNameSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (() => {
+    const appRoot = document.getElementById("appRoot");
+
+    const panelAI   = document.getElementById("panelAI");
+    const panelChat = document.getElementById("panelChat");
+
+    const chatEl     = document.getElementById("chat");
+    const liveChatEl = document.getElementById("liveChat");
+
+    const promptEl = document.getElementById("prompt");
+    const btnSend  = document.getElementById("btnSend");
+
+    const btnMenu   = document.getElementById("btnMenu");
+    const btnKeys   = document.getElementById("btnKeys");
+    const btnAuto   = document.getElementById("btnAuto");
+    const btnBoard  = document.getElementById("btnBoard");
+    const btnDetail = document.getElementById("btnDetail");
+    const btnImage  = document.getElementById("btnImage");
+    const btnMusic  = document.getElementById("btnMusic");
+    const btnChat   = document.getElementById("btnChat");
+
+    const imgBar    = document.getElementById("imgBar");
+    const imgPrompt = document.getElementById("imgPrompt");
+    const btnGen    = document.getElementById("btnGen");
+
+    const musicBar      = document.getElementById("musicBar");
+    const musicPrompt   = document.getElementById("musicPrompt");
+    const musicSeconds  = document.getElementById("musicSeconds");
+    const btnMusicGen   = document.getElementById("btnMusicGen");
+    const musicPlayer   = document.getElementById("musicPlayer");
+    const musicDownload = document.getElementById("musicDownload");
+
+    const keysModal   = document.getElementById("keysModal");
+    const keyOpenAI   = document.getElementById("keyOpenAI");
+    const keyGemini   = document.getElementById("keyGemini");
+    const keyClaude   = document.getElementById("keyClaude");
+    const btnKeysSave = document.getElementById("btnKeysSave");
+    const btnKeysClose= document.getElementById("btnKeysClose");
+
+    const chatStatus  = document.getElementById("chatStatus");
+    const btnJoin     = document.getElementById("btnJoin");
+    const btnBackToAI = document.getElementById("btnBackToAI");
+    const chatInput   = document.getElementById("chatInput");
+    const btnChatSend = document.getElementById("btnChatSend");
+    const btnChatName = document.getElementById("btnChatName");
+
+    const nameModal   = document.getElementById("nameModal");
+    const chatNameInp = document.getElementById("chatName");
+    const btnNameSave = document.getElementById("btnNameSave");
+    const btnNameClose= document.getElementById("btnNameClose");
+
+    let detailMode = false;
+    let history = [];
+    let ws = null;
+
+    const esc = (s) => (s ?? "").toString().replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    function addLabel(text){
+      const d = document.createElement("div");
+      d.className = "bm-label";
+      d.textContent = text;
+      chatEl.appendChild(d);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function addBubble(who, text){
+      const b = document.createElement("div");
+      b.className = "bm-bubble " + who;
+      b.innerHTML = esc(text);
+      chatEl.appendChild(b);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function addImage(b64){
+      const b = document.createElement("div");
+      b.className = "bm-bubble image";
+      const img = document.createElement("img");
+      img.src = "data:image/png;base64," + b64;
+      b.appendChild(img);
+      chatEl.appendChild(b);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function addAudio(b64, filename){
+      const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+      const blob = new Blob([bytes], { type: "audio/mpeg" });
+      const url = URL.createObjectURL(blob);
+
+      const b = document.createElement("div");
+      b.className = "bm-bubble system";
+      b.innerHTML = `<div style="font-weight:900;margin-bottom:8px;">🎵 ${esc(filename || "music.mp3")}</div>`;
+
+      const audio = document.createElement("audio");
+      audio.controls = true;
+      audio.src = url;
+      audio.style.width = "100%";
+      b.appendChild(audio);
+
+      const a = document.createElement("a");
+      a.className = "bm-linkbtn";
+      a.href = url;
+      a.download = filename || "music.mp3";
+      a.textContent = "Download";
+      a.style.marginTop = "10px";
+      b.appendChild(a);
+
+      chatEl.appendChild(b);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function setPanel(which){
+      panelAI.hidden = (which !== "ai");
+      panelChat.hidden = (which !== "chat");
+      if(which === "ai") promptEl.focus();
+      if(which === "chat") chatInput.focus();
+    }
+
+    function setImageBar(on){
+      imgBar.hidden = !on;
+      if(on) {
+        imgBar.classList.add("show");
+        chatEl.classList.add("has-imagebar");
+        imgPrompt.focus();
+      } else {
+        imgBar.classList.remove("show");
+        chatEl.classList.remove("has-imagebar");
+      }
+    }
+
+    function setMusicBar(on){
+      musicBar.hidden = !on;
+      if(on){
+        musicBar.classList.add("show");
+        chatEl.classList.add("has-imagebar");
+        musicPrompt.focus();
+      } else {
+        musicBar.classList.remove("show");
+        chatEl.classList.remove("has-imagebar");
+        musicPlayer.hidden = true;
+        musicDownload.hidden = true;
+      }
+    }
+
+    function headers(){
+      const h = { "Content-Type": "application/json" };
+      const o = localStorage.getItem("bm_openai") || "";
+      const g = localStorage.getItem("bm_gemini") || "";
+      const c = localStorage.getItem("bm_claude") || "";
+      if(o) h["X-OPENAI-KEY"] = o;
+      if(g) h["X-GEMINI-KEY"] = g;
+      if(c) h["X-ANTHROPIC-KEY"] = c;
+      return h;
+    }
+
+    async function postJSON(url, body){
+      const r = await fetch(url, { method:"POST", headers: headers(), body: JSON.stringify(body) });
+      if(!r.ok){
+        const t = await r.text().catch(()=> "");
+        throw new Error(`${r.status} ${r.statusText} ${t}`.trim());
+      }
+      return r.json();
+    }
+
+    async function doAsk(){
+      const p = (promptEl.value || "").trim();
+      if(!p) return;
+      promptEl.value = "";
+
+      history.push({ speaker:"user", text:p });
+      addBubble("user", p);
+
+      const payload = { prompt: p, history: history.slice(-60), detailMode };
+      const data = await postJSON("/ask", payload);
+
+      if(data.openai){ history.push({speaker:"openai", text:data.openai}); addBubble("openai", data.openai); }
+      if(data.gemini){ history.push({speaker:"gemini", text:data.gemini}); addBubble("gemini", data.gemini); }
+      if(data.claude){ history.push({speaker:"claude", text:data.claude}); addBubble("claude", data.claude); }
+    }
+
+    async function doAuto(){
+      const data = await postJSON("/auto_round", { history: history.slice(-80), detailMode });
+      const who = (data.speaker || "system").toLowerCase();
+      const t = data.text || "";
+      history.push({ speaker: who, text: t });
+      addBubble(who, t);
+    }
+
+    async function doBoard(){
+      const data = await postJSON("/board_decision", { history: history.slice(-120), detailMode });
+      const t = data.board || "";
+      history.push({ speaker: "board", text: t });
+      addBubble("board", t);
+    }
+
+    async function doImage(){
+      const p = (imgPrompt.value || "").trim();
+      if(!p) return;
+      addLabel("IMAGE");
+      addBubble("user", p);
+      const data = await postJSON("/img/txt2img", { prompt: p });
+      if(data.b64_png) addImage(data.b64_png);
+    }
+
+    async function doMusic(){
+      const p = (musicPrompt.value || "").trim();
+      const sRaw = (musicSeconds.value || "").trim();
+      const seconds = Math.max(1, Math.min(180, parseInt(sRaw || "12", 10)));
+      if(!p) return;
+
+      addLabel("MUSIC");
+      addBubble("user", `${p} (${seconds}s)`);
+
+      const data = await postJSON("/music/generate", { prompt: p, seconds });
+
+      if(data?.b64_audio){
+        const bytes = Uint8Array.from(atob(data.b64_audio), c => c.charCodeAt(0));
+        const blob = new Blob([bytes], { type: "audio/mpeg" });
+        const url = URL.createObjectURL(blob);
+
+        musicPlayer.src = url;
+        musicPlayer.hidden = false;
+
+        musicDownload.href = url;
+        musicDownload.download = data.filename || "music.mp3";
+        musicDownload.hidden = false;
+
+        addAudio(data.b64_audio, data.filename);
+      } else {
+        addBubble("system", "Music error: no audio returned.");
+      }
+    }
+
+    function getChatName(){
+      return (localStorage.getItem("bm_chat_name") || "Guest").trim().slice(0,24) || "Guest";
+    }
+    function setChatStatus(txt){ chatStatus.textContent = txt; }
+
+    function addLiveMsg(name, text, t){
+      const row = document.createElement("div");
+      row.className = "bm-msg";
+
+      const av = document.createElement("div");
+      av.className = "bm-avatar";
+      av.textContent = (name || "?").trim().slice(0,1).toUpperCase() || "?";
+
+      const body = document.createElement("div");
+      body.className = "bm-msgbody";
+
+      const meta = document.createElement("div");
+      meta.className = "bm-msgmeta";
+      meta.innerHTML = `<span class="bm-msgname">${esc(name || "Guest")}</span><span class="bm-msgtime">${esc(new Date((t||Date.now())).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}))}</span>`;
+
+      const msg = document.createElement("div");
+      msg.className = "bm-msgtext";
+      msg.innerHTML = esc(text || "");
+
+      body.appendChild(meta);
+      body.appendChild(msg);
+
+      row.appendChild(av);
+      row.appendChild(body);
+
+      liveChatEl.appendChild(row);
+      liveChatEl.scrollTop = liveChatEl.scrollHeight;
+    }
+
+    async function chatJoin(){
+      if(ws && ws.readyState === 1) return;
+      const name = encodeURIComponent(getChatName());
+      ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/ws/chat?room=global&name=${name}`);
+      setChatStatus("Connecting…");
+
+      ws.onopen = async () => {
+        setChatStatus("Connected");
+        try{
+          const r = await fetch("/chat/history?room=global");
+          const j = await r.json();
+          liveChatEl.innerHTML = "";
+          (j.messages || []).forEach(m => addLiveMsg(m.name, m.text, m.t));
+        }catch(e){}
+      };
+
+      ws.onmessage = (ev) => {
+        try{
+          const obj = JSON.parse(ev.data);
+          if(obj?.type === "msg" && obj.msg){
+            addLiveMsg(obj.msg.name, obj.msg.text, obj.msg.t);
+          }
+        }catch(e){}
+      };
+
+      ws.onclose = () => setChatStatus("Disconnected");
+      ws.onerror = () => setChatStatus("Disconnected");
+    }
+
+    function chatSend(){
+      const t = (chatInput.value || "").trim();
+      if(!t) return;
+      chatInput.value = "";
+      if(ws && ws.readyState === 1){
+        ws.send(JSON.stringify({ text: t }));
+      }
+    }
+
+    btnMenu.addEventListener("click", () => appRoot.classList.toggle("rail-open"));
+
+    btnKeys.addEventListener("click", () => {
+      keyOpenAI.value = localStorage.getItem("bm_openai") || "";
+      keyGemini.value = localStorage.getItem("bm_gemini") || "";
+      keyClaude.value = localStorage.getItem("bm_claude") || "";
+      keysModal.style.display = "grid";
+    });
+    btnKeysClose.addEventListener("click", () => keysModal.style.display = "none");
+    btnKeysSave.addEventListener("click", () => {
+      localStorage.setItem("bm_openai", (keyOpenAI.value||"").trim());
+      localStorage.setItem("bm_gemini", (keyGemini.value||"").trim());
+      localStorage.setItem("bm_claude", (keyClaude.value||"").trim());
+      keysModal.style.display = "none";
+      addBubble("system", "Keys saved.");
+    });
+
+    btnDetail.addEventListener("click", () => {
+      detailMode = !detailMode;
+      btnDetail.classList.toggle("active", detailMode);
+      addBubble("system", `Detail mode: ${detailMode ? "ON" : "OFF"}`);
+    });
+
+    btnSend.addEventListener("click", () => doAsk().catch(e => addBubble("system", "Error: " + e.message)));
+    promptEl.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){ e.preventDefault(); btnSend.click(); }
+    });
+
+    btnAuto.addEventListener("click", () => doAuto().catch(e => addBubble("system", "Error: " + e.message)));
+    btnBoard.addEventListener("click", () => doBoard().catch(e => addBubble("system", "Error: " + e.message)));
+
+    btnImage.addEventListener("click", () => {
+      const on = imgBar.hidden;
+      setMusicBar(false);
+      setImageBar(on);
+    });
+    btnGen.addEventListener("click", () => doImage().catch(e => addBubble("system", "Image error: " + e.message)));
+    imgPrompt.addEventListener("keydown", (e) => { if(e.key==="Enter"){ e.preventDefault(); btnGen.click(); } });
+
+    btnMusic.addEventListener("click", () => {
+      const on = musicBar.hidden;
+      setImageBar(false);
+      setMusicBar(on);
+    });
+    btnMusicGen.addEventListener("click", () => doMusic().catch(e => addBubble("system", "Music error: " + e.message)));
+    musicPrompt.addEventListener("keydown", (e) => { if(e.key==="Enter"){ e.preventDefault(); btnMusicGen.click(); } });
+    musicSeconds.addEventListener("keydown", (e) => { if(e.key==="Enter"){ e.preventDefault(); btnMusicGen.click(); } });
+
+    btnChat.addEventListener("click", () => { setPanel("chat"); });
+    btnBackToAI.addEventListener("click", () => { setPanel("ai"); });
+
+    btnJoin.addEventListener("click", () => chatJoin());
+    btnChatSend.addEventListener("click", () => chatSend());
+    chatInput.addEventListener("keydown", (e) => { if(e.key==="Enter"){ e.preventDefault(); chatSend(); } });
+
+    btnChatName.addEventListener("click", () => {
+      chatNameInp.value = getChatName();
+      nameModal.style.display = "grid";
+    });
+    btnNameClose.addEventListener("click", () => nameModal.style.display = "none");
+    btnNameSave.addEventListener("click", () => {
+      localStorage.setItem("bm_chat_name", (chatNameInp.value||"").trim().slice(0,24));
+      nameModal.style.display = "none";
+    });
+
+    document.getElementById("btnSandbox").addEventListener("click", () => {
+      addBubble("system", "Sandbox: not wired yet.");
+    });
+
+    addBubble("system", "Ready.");
+    promptEl.focus();
+  })();
+  </script>
+</body>
+</html>

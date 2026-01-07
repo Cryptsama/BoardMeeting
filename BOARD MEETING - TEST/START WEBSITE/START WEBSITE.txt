@@ -1,0 +1,55 @@
+-Always go to Clouflare website first to check status of tunnels.
+-Go to Vast.AI rent out instance
+-Install everything for Comfyui
+-Proceed below
+
+=============================================================================================
+
+Open second terminal and post this
+
+cloudflared tunnel run boardmeeting
+
+
+Then your public website is 
+
+https://bm.boardmeetingai.app/
+
+
+
+
+===============================================================================================
+
+Go to network and manage terminals.
+Also might have to find the boardmeeting.app authorize thing maybe.
+
+Goodluuuuck.
+
+This link gets you to cloudflare api key pick Debian
+
+https://one.dash.cloudflare.com/4e9a1965ac46834e04f06942ef1d907d/networks/connectors/cloudflare-tunnels/cfd_tunnel/7b8f3930-bb0f-4ab5-9393-1d4b2859dfd3/edit?tab=overview
+
+
+
+===========================================================================================
+
+
+IN TERMINAL.
+
+cloudflared tunnel --no-autoupdate run --token eyJhIjoiNGU5YTE5NjVhYzQ2ODM0ZTA0ZjA2OTQyZWYxZDkwN2QiLCJ0IjoiN2I4ZjM5MzAtYmIwZi00YWI1LTkzOTMtMWQ0YjI4NTlkZmQzIiwicyI6Ik9UZ3dNak0yTlRVdFpHUTFNQzAwWXpFNUxXRmxaalF0TjJFNU1XTXhNR1UwTlRFMiJ9 
+
+https://bm.boardmeetingai.app
+
+
+cloudflared tunnel --url http://127.0.0.1:8000
+
+
+
+cloudflared tunnel run boardmeeting
+
+
+Start-Process powershell -ArgumentList '-NoExit','-Command','cd "C:\Users\Crypt\Desktop\BOARD MEETING"; .\.venv\Scripts\Activate.ps1; uvicorn app:app --host 127.0.0.1 --port 8000'
+Start-Process powershell -ArgumentList '-NoExit','-Command','cloudflared tunnel run boardmeeting'
+
+
+
+powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Desktop\start_public_boardmeeting.ps1"

@@ -1,0 +1,4 @@
+[20:25:52] USER: /web what time is in in maryland USA
+ChatGPT: I’m not able to access live web data. However, Maryland is in the Eastern Time Zone (ET), so the current time follows Eastern Standard or Daylight Time depending on the season.
+Gemini: As I've mentioned before, I cannot access the internet or real-time data, including current time information. My responses are based on my training data and current conversational context.
+

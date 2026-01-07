@@ -1,0 +1,59 @@
+{
+  "id": "4f6c5547-f4d2-41a6-a8e7-e4429954ac8e",
+  "created_at": "2025-12-16T22:26:43.453881",
+  "title": "Test message one",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Test message 1"
+    },
+    {
+      "role": "assistant",
+      "stage1": [
+        {
+          "model": "ChatGPT",
+          "response": "Message received. How can I assist you?"
+        },
+        {
+          "model": "Gemini",
+          "response": "Test message received."
+        },
+        {
+          "model": "Claude",
+          "response": "I'm ready and listening. What would you like to discuss?"
+        }
+      ],
+      "stage2": [
+        {
+          "model": "ChatGPT",
+          "ranking": "Response A: Polite and offers assistance, encouraging further interaction.  \nResponse B: Acknowledges the message but is very brief and less engaging.  \nResponse C: Friendly and inviting, showing readiness to engage, slightly more conversational than A.\n\nFINAL RANKING:  \n1. Response C  \n2. Response A  \n3. Response B",
+          "parsed_ranking": [
+            "Response C",
+            "Response A",
+            "Response B"
+          ]
+        },
+        {
+          "model": "Gemini",
+          "ranking": "Response A acknowledges the message and asks how",
+          "parsed_ranking": [
+            "Response A"
+          ]
+        },
+        {
+          "model": "Claude",
+          "ranking": "Response A: Generic and somewhat helpful, shows readiness to assist but lacks specificity. Response B: Direct and acknowledges the message, but very minimal. Response C: Slightly more engaging, shows openness and proactiveness. FINAL RANKING:\n1. Response C\n2. Response A\n3. Response B",
+          "parsed_ranking": [
+            "Response C",
+            "Response A",
+            "Response B"
+          ]
+        }
+      ],
+      "stage3": {
+        "model": "Chairman (ChatGPT)",
+        "response": "Message received. I'm ready to assist\u2014how can I help you today?"
+      }
+    }
+  ]
+}

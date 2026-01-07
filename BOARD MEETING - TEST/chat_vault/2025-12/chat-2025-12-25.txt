@@ -1,0 +1,4 @@
+[2025-12-26T09:27:51] [127.0.0.1] [user|ui] hello
+[2025-12-26T09:27:54] [127.0.0.1] [model:openai|openai] Hello! How can I help you today?
+[2025-12-26T09:27:54] [127.0.0.1] [model:gemini|gemini] Hello! How can I help you today?
+[2025-12-26T09:27:54] [127.0.0.1] [model:claude|claude] Hello. I'm Claude (Anthropic).

@@ -1,0 +1,53 @@
+[2025-12-24T13:58:41] [chat:global] [user|live_chat] Guest: hello
+[2025-12-24T14:41:54] [2600:1003:b1bd:59bf:9903:ed50:309d:8e9d] [user|ui] Hlo
+[2025-12-24T14:41:56] [2600:1003:b1bd:59bf:9903:ed50:309d:8e9d] [model:openai|openai] Hello! How can I help you today?
+[2025-12-24T14:41:56] [2600:1003:b1bd:59bf:9903:ed50:309d:8e9d] [model:gemini|gemini] Hello!
+[2025-12-24T14:41:56] [2600:1003:b1bd:59bf:9903:ed50:309d:8e9d] [model:claude|claude] Claude error: AuthenticationError: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CWS5iEXSGx3CaeCyTfjRJ'}
+[2025-12-24T14:45:06] [127.0.0.1] [user|ui] hello
+[2025-12-24T14:45:07] [127.0.0.1] [model:openai|openai] Hello! How can I help you today?
+[2025-12-24T14:45:08] [127.0.0.1] [model:gemini|gemini] Hello! How can I help you today?
+[2025-12-24T14:45:08] [127.0.0.1] [model:claude|claude] Hello. I'm Claude (Anthropic).
+[2025-12-24T16:35:35] [chat:global] [user|live_chat] Jorge: Hello
+[2025-12-24T16:35:51] [chat:global] [user|live_chat] Joe: Merry Christmas!
+[2025-12-24T17:06:05] [chat:global] [user|live_chat] Jorge: Hey
+[2025-12-24T17:06:25] [chat:global] [user|live_chat] Jorge: Meerrrry christmas
+[2025-12-24T17:06:48] [chat:global] [user|live_chat] Jorge: Hello
+[2025-12-24T22:17:23] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:18:33] [127.0.0.1] [user|ui] hello
+[2025-12-24T22:18:34] [127.0.0.1] [model:openai|openai] Hello! How can I help you today?
+[2025-12-24T22:18:34] [127.0.0.1] [model:gemini|gemini] Hello! How can I help you today?
+[2025-12-24T22:18:34] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic).
+[2025-12-24T22:18:45] [127.0.0.1] [user|ui] how is everything
+[2025-12-24T22:18:46] [127.0.0.1] [model:openai|openai] Everything’s good, thanks! How can I help you today?
+[2025-12-24T22:18:46] [127.0.0.1] [model:gemini|gemini] I am functioning as expected
+[2025-12-24T22:18:46] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). Everything is fine, thanks for asking.
+[2025-12-24T22:19:02] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:19:13] [127.0.0.1] [user|ui] what is the best pir
+[2025-12-24T22:19:14] [127.0.0.1] [model:openai|openai] The best PIR (Passive Infrared) sensor depends on your needs, but popular options include the HC-SR501 for general use and Panasonic EKMB series for higher sensitivity and reliability.
+[2025-12-24T22:19:14] [127.0.0.1] [model:gemini|gemini] The best PIR
+[2025-12-24T22:19:14] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best PIR (Passive Infrared) sensor depends on your specific use case and requirements.
+[2025-12-24T22:19:21] [127.0.0.1] [user|ui] pie
+[2025-12-24T22:19:23] [127.0.0.1] [model:openai|openai] Pie is a baked dish with a pastry crust and a sweet or savory filling. Do you want a recipe or types of pie?
+[2025-12-24T22:19:23] [127.0.0.1] [model:gemini|gemini] The best pie is subjective, but apple pie is a classic and widely loved choice.
+[2025-12-24T22:19:23] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best pie is subjective, but classic options like apple, pecan, or pumpkin are popular choices.
+[2025-12-24T22:19:26] [127.0.0.1] [model:openai|openai] Pie is delicious! If you want, I can share a simple apple pie recipe or suggest other popular pies.
+[2025-12-24T22:19:29] [127.0.0.1] [model:gemini|gemini] Pie is a
+[2025-12-24T22:19:30] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best PIR sensor depends on your specific needs and requirements. As for pie, that's a more subjective topic, but classic varieties like apple, pecan, and pumpkin are widely enjoyed.
+[2025-12-24T22:19:33] [127.0.0.1] [model:openai|openai] Pie is delicious! If you'd like, I can share a simple apple pie recipe or suggest other popular types.
+[2025-12-24T22:19:35] [127.0.0.1] [model:gemini|gemini] Pie is a versatile and
+[2025-12-24T22:19:37] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best PIR sensor depends on your specific needs and requirements. As for pie, that's a more subjective topic, but classic varieties like apple, pecan, and pumpkin are widely enjoyed. If you'd like, I can share a simple apple pie recipe or suggest other popular pie options.
+[2025-12-24T22:19:38] [127.0.0.1] [model:openai|openai] Pie is delicious! Would you like a recipe for a classic apple pie or suggestions for other popular types?
+[2025-12-24T22:19:41] [127.0.0.1] [model:gemini|gemini] Pie is a versatile baked
+[2025-12-24T22:19:42] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best PIR sensor depends on your specific needs and requirements. As for pie, that's a more subjective topic, but classic varieties like apple, pecan, and pumpkin are widely enjoyed. If you'd like, I can share a simple apple pie recipe or suggest other popular pie options.
+[2025-12-24T22:19:45] [127.0.0.1] [model:openai|openai] Pie is a delicious baked dish with many varieties like apple, pecan, and pumpkin. Would you like a recipe or suggestions?
+[2025-12-24T22:19:49] [127.0.0.1] [model:gemini|gemini] Pie is a versatile
+[2025-12-24T22:19:49] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best PIR sensor depends on your specific needs and requirements. As for pie, that's a more subjective topic, but classic varieties like apple, pecan, and pumpkin are widely enjoyed. If you'd like, I can share a simple apple pie recipe or suggest other popular pie options.
+[2025-12-24T22:19:50] [127.0.0.1] [model:openai|openai] Pie is a delicious baked dish with many varieties like apple, pecan, and pumpkin. Would you like a recipe or suggestions?
+[2025-12-24T22:19:50] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic). The best PIR sensor and pie options depend on your specific needs and preferences. Let me know if you'd like any recommendations or recipes.
+[2025-12-24T22:19:51] [127.0.0.1] [model:gemini|gemini] Pie is a delicious
+[2025-12-24T22:20:04] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:20:16] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:20:16] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:20:17] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:20:17] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.
+[2025-12-24T22:20:20] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: Need more context.

@@ -1,0 +1,156 @@
+set -euo pipefail
+cd /workspace || exit 1
+
+# ===================== PASTE YOUR TOKEN HERE =====================
+TOKEN=eyJhIjoiNGU5YTE5NjVhYzQ2ODM0ZTA0ZjA2OTQyZWYxZDkwN2QiLCJ0IjoiN2I4ZjM5MzAtYmIwZi00YWI1LTkzOTMtMWQ0YjI4NTlkZmQzIiwicyI6Ik9UZ3dNak0yTlRVdFpHUTFNQzAwWXpFNUxXRmxaalF0TjJFNU1XTXhNR1UwTlRFMiJ9
+# ================================================================
+
+PORT="18188"
+ROOT="/workspace"
+CUI="$ROOT/ComfyUI"
+WF_DIR="$CUI/user/default/workflows"
+CKPT_DIR="$CUI/models/checkpoints"
+VAE_DIR="$CUI/models/vae"
+OUT_TXT="$ROOT/SDXL_TXT2IMG_JUGGERNAUT.workflow.json.txt"
+OUT_JSON="$WF_DIR/SDXL_TXT2IMG_JUGGERNAUT.workflow.json"
+
+pkill -9 -f "cloudflared.*tunnel" || true
+pkill -9 -f "ComfyUI/main.py" || true
+fuser -k ${PORT}/tcp 2>/dev/null || true
+sleep 1
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -y
+apt-get install -y git curl ca-certificates psmisc aria2 jq python3-pip
+
+if ! command -v cloudflared >/dev/null 2>&1; then
+  mkdir -p --mode=0755 /usr/share/keyrings
+  curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
+  printf '%s\n' 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' \
+    > /etc/apt/sources.list.d/cloudflared.list
+  apt-get update -y
+  apt-get install -y cloudflared
+fi
+
+rm -rf "$CUI"
+mkdir -p "$ROOT"
+cd "$ROOT"
+git clone https://github.com/comfyanonymous/ComfyUI.git "$CUI"
+cd "$CUI"
+
+python3 -m pip install -U pip wheel setuptools
+python3 -m pip install -r requirements.txt
+
+mkdir -p custom_nodes
+cd custom_nodes
+git clone https://github.com/Comfy-Org/ComfyUI-Manager.git         || true
+git clone https://github.com/cubiq/ComfyUI_essentials.git          || true
+git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git      || true
+git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git     || true
+git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git || true
+git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git      || true
+cd "$CUI"
+
+for d in custom_nodes/*; do
+  if [ -f "$d/requirements.txt" ]; then
+    python3 -m pip install -r "$d/requirements.txt" || true
+  fi
+done
+
+mkdir -p "$WF_DIR" "$CKPT_DIR" "$VAE_DIR" \
+  "$CUI/models/clip_vision" "$CUI/models/text_encoders" "$CUI/models/diffusion_models" \
+  "$CUI/models/loras" "$CUI/models/controlnet"
+
+aria2c -x16 -s16 -c -d "$CKPT_DIR" -o juggernautXL_v8.safetensors \
+  "https://huggingface.co/xingren23/comfyflow-models/resolve/main/checkpoints/sdxl/juggernaut-xl_v8.safetensors?download=true"
+
+aria2c -x16 -s16 -c -d "$VAE_DIR" -o sdxl.vae.safetensors \
+  "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl.vae.safetensors"
+
+cat > "$OUT_JSON" <<'JSON'
+{
+  "version": 0.4,
+  "config": {},
+  "groups": [],
+  "extra": {},
+  "nodes": [
+    {"id":1,"type":"CheckpointLoaderSimple","pos":[60,120],"size":[320,80],"flags":{},"order":0,"mode":0,
+     "outputs":[
+       {"name":"MODEL","type":"MODEL","links":[1],"slot_index":0},
+       {"name":"CLIP","type":"CLIP","links":[2,3],"slot_index":1},
+       {"name":"VAE","type":"VAE","links":[4],"slot_index":2}
+     ],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":["juggernautXL_v8.safetensors"]},
+
+    {"id":2,"type":"VAELoader","pos":[60,240],"size":[320,80],"flags":{},"order":1,"mode":0,
+     "outputs":[{"name":"VAE","type":"VAE","links":[5],"slot_index":0}],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":["sdxl.vae.safetensors"]},
+
+    {"id":3,"type":"CLIPTextEncode","pos":[430,80],"size":[420,120],"flags":{},"order":2,"mode":0,
+     "inputs":[{"name":"clip","type":"CLIP","link":2,"slot_index":0}],
+     "outputs":[{"name":"CONDITIONING","type":"CONDITIONING","links":[6],"slot_index":0}],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":["portrait photo of a beautiful woman, natural skin texture, 85mm, soft studio light, ultra realistic"]},
+
+    {"id":4,"type":"CLIPTextEncode","pos":[430,230],"size":[420,120],"flags":{},"order":3,"mode":0,
+     "inputs":[{"name":"clip","type":"CLIP","link":3,"slot_index":0}],
+     "outputs":[{"name":"CONDITIONING","type":"CONDITIONING","links":[7],"slot_index":0}],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":["worst quality, lowres, blurry, deformed, extra fingers, bad hands, bad anatomy, watermark, text"]},
+
+    {"id":5,"type":"EmptyLatentImage","pos":[430,400],"size":[420,110],"flags":{},"order":4,"mode":0,
+     "outputs":[{"name":"LATENT","type":"LATENT","links":[8],"slot_index":0}],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":[1024,1024,1]},
+
+    {"id":6,"type":"KSampler","pos":[900,180],"size":[520,260],"flags":{},"order":5,"mode":0,
+     "inputs":[
+       {"name":"model","type":"MODEL","link":1,"slot_index":0},
+       {"name":"positive","type":"CONDITIONING","link":6,"slot_index":1},
+       {"name":"negative","type":"CONDITIONING","link":7,"slot_index":2},
+       {"name":"latent_image","type":"LATENT","link":8,"slot_index":3}
+     ],
+     "outputs":[{"name":"LATENT","type":"LATENT","links":[9],"slot_index":0}],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":[123456789,"randomize",30,6.5,"dpmpp_2m","karras",1]},
+
+    {"id":7,"type":"VAEDecode","pos":[1460,220],"size":[320,120],"flags":{},"order":6,"mode":0,
+     "inputs":[
+       {"name":"samples","type":"LATENT","link":9,"slot_index":0},
+       {"name":"vae","type":"VAE","link":5,"slot_index":1}
+     ],
+     "outputs":[{"name":"IMAGE","type":"IMAGE","links":[10],"slot_index":0}],
+     "properties":{"ver":"1.0.0"}},
+
+    {"id":8,"type":"SaveImage","pos":[1820,220],"size":[320,90],"flags":{},"order":7,"mode":0,
+     "inputs":[{"name":"images","type":"IMAGE","link":10,"slot_index":0}],
+     "properties":{"ver":"1.0.0"},
+     "widgets_values":["BM_SDXL"]}
+  ],
+  "links": [
+    [1,1,0,6,0,"MODEL"],
+    [2,1,1,3,0,"CLIP"],
+    [3,1,1,4,0,"CLIP"],
+    [4,1,2,7,1,"VAE"],
+    [5,2,0,7,1,"VAE"],
+    [6,3,0,6,1,"CONDITIONING"],
+    [7,4,0,6,2,"CONDITIONING"],
+    [8,5,0,6,3,"LATENT"],
+    [9,6,0,7,0,"LATENT"],
+    [10,7,0,8,0,"IMAGE"]
+  ]
+}
+JSON
+
+cp -f "$OUT_JSON" "$OUT_TXT"
+
+nohup python3 "$CUI/main.py" --listen 127.0.0.1 --port "$PORT" > /workspace/comfyui.log 2>&1 &
+sleep 2
+
+nohup cloudflared tunnel --no-autoupdate run --token "$TOKEN" > /workspace/tunnel.log 2>&1 &
+sleep 2
+
+curl -sS "http://127.0.0.1:${PORT}/system_stats" | head -c 120
+tail -n 30 /workspace/tunnel.log

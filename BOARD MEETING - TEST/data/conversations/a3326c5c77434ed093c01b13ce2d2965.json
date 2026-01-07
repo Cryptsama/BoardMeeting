@@ -1,0 +1,16 @@
+{
+  "id": "a3326c5c77434ed093c01b13ce2d2965",
+  "created_at": "2025-12-16T17:53:51.144978",
+  "title": "New Conversation",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello"
+    },
+    {
+      "role": "assistant",
+      "speaker": "openai",
+      "content": "Hello! How can I help you today?"
+    }
+  ]
+}

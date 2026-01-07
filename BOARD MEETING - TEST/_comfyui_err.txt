@@ -1,0 +1,73 @@
+Checkpoint files will always be loaded safely.
+Total VRAM 11151 MB, total RAM 7890 MB
+pytorch version: 2.9.0+rocmsdk20251116
+Set: torch.backends.cudnn.enabled = False for better AMD performance.
+AMD arch: gfx1103
+ROCm version: (7, 1)
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 AMD Radeon Graphics : native
+Enabled pinned memory 3550.0
+Using sub quadratic optimization for attention, if you have memory or speed issues try using: --use-split-cross-attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.4.0
+ComfyUI frontend version: 1.33.13
+[Prompt Server] web root: C:\Users\Crypt\Desktop\ComfyUI_windows_portable\python_embeded\Lib\site-packages\comfyui_frontend_package\static
+Total VRAM 11151 MB, total RAM 7890 MB
+pytorch version: 2.9.0+rocmsdk20251116
+Set: torch.backends.cudnn.enabled = False for better AMD performance.
+AMD arch: gfx1103
+ROCm version: (7, 1)
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 AMD Radeon Graphics : native
+Enabled pinned memory 3550.0
+
+Import times for custom nodes:
+   0.0 seconds: C:\Users\Crypt\Desktop\ComfyUI_windows_portable\ComfyUI\custom_nodes\websocket_image_save.py
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://127.0.0.1:8188
+got prompt
+Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\python_embeded\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\python_embeded\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\python_embeded\Lib\site-packages\aiohttp\web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\ComfyUI\middleware\cache_middleware.py", line 27, in cache_control
+    response: web.Response = await handler(request)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\ComfyUI\server.py", line 74, in deprecation_warning
+    response: web.Response = await handler(request)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\ComfyUI\server.py", line 164, in origin_only_middleware
+    response = await handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\ComfyUI\server.py", line 728, in post_prompt
+    json_data =  await request.json()
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Crypt\Desktop\ComfyUI_windows_portable\python_embeded\Lib\site-packages\aiohttp\web_request.py", line 695, in json
+    return loads(body)
+           ^^^^^^^^^^^
+  File "json\__init__.py", line 335, in loads
+json.decoder.JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+got prompt
+model weight dtype torch.float16, manual cast: None
+model_type EPS
+Using split attention in VAE
+Using split attention in VAE
+VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+loaded diffusion model directly to GPU
+Requested to load BaseModel
+loaded completely; 95367431640625005117571072.00 MB usable, 1639.41 MB loaded, full load: True
+Requested to load SD1ClipModel
+loaded completely; 7918.99 MB usable, 235.84 MB loaded, full load: True

@@ -1,0 +1,19 @@
+[2025-12-26T12:27:30] [chat:global] [user|live_chat] Guest: hello
+[2025-12-26T12:27:38] [127.0.0.1] [user|ui] hello
+[2025-12-26T12:27:40] [127.0.0.1] [model:openai|openai] Hello! How can I help you today?
+[2025-12-26T12:27:40] [127.0.0.1] [model:gemini|gemini] Hello! How can I help you today?
+[2025-12-26T12:27:40] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic).
+[2025-12-26T12:27:48] [127.0.0.1] [model:referee|openai_referee] BOARD DECISION: CHATGPT and GEMINI greeted the user similarly, while CLAUDE only introduced itself.
+[2025-12-26T18:18:07] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [user|ui] Whats up
+[2025-12-26T18:18:09] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:openai|openai] Not much, just here to help. What can I do for you?
+[2025-12-26T18:18:09] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:gemini|gemini] Not much.
+[2025-12-26T18:18:09] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:claude|claude] Hello. I'm Claude (Anthropic).
+[2025-12-26T18:36:28] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [user|ui] Hello
+[2025-12-26T18:36:30] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:openai|openai] Hello! How can I assist you today?
+[2025-12-26T18:36:30] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:gemini|gemini] Hello! How can I help you today?
+[2025-12-26T18:36:30] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:claude|claude] I'm Claude (Anthropic).
+[2025-12-26T19:34:48] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [user|ui] Do you guys see the image?
+[2025-12-26T19:34:51] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:openai|openai] I can't see images. Please describe it or ask any questions about it.
+[2025-12-26T19:34:51] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:gemini|gemini] I cannot see images. I am a text-based AI.
+[2025-12-26T19:34:51] [2600:1003:b1bd:59bf:f42c:708f:8ee9:cff4] [model:claude|claude] I'm Claude (Anthropic). I do not currently see any image in our conversation. Please try uploading the image again.
+[2025-12-26T19:35:13] [chat:global] [user|live_chat] Guest: Helloo

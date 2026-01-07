@@ -1,0 +1,43 @@
+set -euo pipefail
+cd /workspace || exit 1
+
+# ===================== PASTE YOUR TOKEN HERE =====================
+TOKEN=eyJhIjoiNGU5YTE5NjVhYzQ2ODM0ZTA0ZjA2OTQyZWYxZDkwN2QiLCJ0IjoiN2I4ZjM5MzAtYmIwZi00YWI1LTkzOTMtMWQ0YjI4NTlkZmQzIiwicyI6Ik9UZ3dNak0yTlRVdFpHUTFNQzAwWXpFNUxXRmxaalF0TjJFNU1XTXhNR1UwTlRFMiJ9
+# ================================================================
+
+PORT="18188"
+CUI="/workspace/ComfyUI"
+
+pkill -9 -f "cloudflared.*tunnel" || true
+pkill -9 -f "ComfyUI/main.py" || true
+fuser -k ${PORT}/tcp 2>/dev/null || true
+sleep 1
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -y
+apt-get install -y git curl ca-certificates psmisc
+
+if ! command -v cloudflared >/dev/null 2>&1; then
+  mkdir -p --mode=0755 /usr/share/keyrings
+  curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
+  printf '%s\n' 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' \
+    > /etc/apt/sources.list.d/cloudflared.list
+  apt-get update -y
+  apt-get install -y cloudflared
+fi
+
+if [ ! -d "$CUI" ]; then
+  git clone https://github.com/comfyanonymous/ComfyUI.git "$CUI"
+fi
+
+python3 -m pip install -U pip wheel setuptools
+python3 -m pip install -r "$CUI/requirements.txt"
+
+nohup python3 "$CUI/main.py" --listen 127.0.0.1 --port "$PORT" > /workspace/comfyui.log 2>&1 &
+sleep 2
+
+nohup cloudflared tunnel --no-autoupdate run --token "$TOKEN" > /workspace/tunnel.log 2>&1 &
+sleep 2
+
+curl -sS "http://127.0.0.1:${PORT}/system_stats" | head -c 120
+tail -n 30 /workspace/tunnel.log

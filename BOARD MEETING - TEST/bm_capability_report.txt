@@ -1,0 +1,112 @@
+﻿BOARDMEETING CAPABILITY REPORT
+Root: C:\Users\Crypt\Desktop\BOARD MEETING
+Generated: 12/14/2025 02:46:46
+
+=== TOP-LEVEL FOLDERS ===
+.venv
+__pycache__
+_BM_BEFORE_ORG
+archive
+automations
+docs
+dumps
+Logs
+Start Options (Start.Bat)
+static
+Templates
+tools
+
+=== KEY ROOT FILES ===
+.env	0.5 KB	11/20/2025 20:55:35
+app.py	7.7 KB	11/16/2025 11:29:44
+requirements.txt	0.1 KB	11/13/2025 19:58:32
+start.bat	[MISSING]
+start_local.bat	0.3 KB	12/14/2025 02:10:39
+start_lan.bat	[MISSING]
+BoardMeeting_Notes.txt	3.7 KB	12/14/2025 02:22:06
+
+=== requirements.txt ===
+fastapi
+uvicorn
+python-dotenv
+openai
+google-generativeai
+jinja2
+
+=== .env KEYS (NO VALUES) ===
+OPENAI_API_KEY
+GEMINI_API_KEY
+TAVILY_API_KEY
+ANTHROPIC_API_KEY
+
+=== FASTAPI ROUTES FOUND (from app.py) ===
+GET	/
+GET	/health
+POST	/ask
+
+Uses Jinja2Templates (Templates folder)
+Mounts StaticFiles (static folder)
+
+=== Templates/ ===
+index - Copy.html
+index.html
+
+=== static/ (top 25 largest files) ===
+static\style.css	1 KB
+
+=== MINI FILE TREE (depth<=2, excludes .venv/__pycache__/dumps/archive/Logs) ===
+[DIR]  .venv
+[DIR]  archive
+[DIR]  automations
+[DIR]  docs
+[DIR]  dumps
+[DIR]  Logs
+[DIR]  Start Options (Start.Bat)
+[DIR]  static
+[DIR]  Templates
+[DIR]  tools
+[DIR]  _BM_BEFORE_ORG
+[DIR]  __pycache__
+       .env
+       app.py
+       bm_capability.ps1
+       BoardMeeting_Notes.txt
+       requirements.txt
+       start_local.bat
+       automations\auto_A.py
+       automations\auto_B.py
+       docs\ACTIVATIONG PROMPTS.txt
+       docs\README.txt
+       Start Options (Start.Bat)\start.bat
+       Start Options (Start.Bat)\start_lan.bat
+       static\style.css
+       Templates\index - Copy.html
+       Templates\index.html
+       tools\bm_hotkeys.py
+       tools\keyboard_setup_and_test.py
+       tools\test_gemini.py
+       tools\websearch.py
+[DIR]  _BM_BEFORE_ORG\20251214_023950
+       _BM_BEFORE_ORG\20251214_023950\.env
+       _BM_BEFORE_ORG\20251214_023950\ACTIVATIONG PROMPTS.txt
+       _BM_BEFORE_ORG\20251214_023950\AI interface.py
+       _BM_BEFORE_ORG\20251214_023950\app.py
+       _BM_BEFORE_ORG\20251214_023950\app1.py
+       _BM_BEFORE_ORG\20251214_023950\app2.py
+       _BM_BEFORE_ORG\20251214_023950\app3.py
+       _BM_BEFORE_ORG\20251214_023950\app4.py
+       _BM_BEFORE_ORG\20251214_023950\auto_A.py
+       _BM_BEFORE_ORG\20251214_023950\auto_B.py
+       _BM_BEFORE_ORG\20251214_023950\bm_hotkeys.py
+       _BM_BEFORE_ORG\20251214_023950\bm_loose_report.txt
+       _BM_BEFORE_ORG\20251214_023950\boardmeeting_full_dump.txt
+       _BM_BEFORE_ORG\20251214_023950\BoardMeeting_Notes.txt
+       _BM_BEFORE_ORG\20251214_023950\full_project_dump.txt
+       _BM_BEFORE_ORG\20251214_023950\keyboard_setup_and_test.py
+       _BM_BEFORE_ORG\20251214_023950\README.txt
+       _BM_BEFORE_ORG\20251214_023950\requirements.txt
+       _BM_BEFORE_ORG\20251214_023950\start.bat
+       _BM_BEFORE_ORG\20251214_023950\start_lan.bat
+       _BM_BEFORE_ORG\20251214_023950\start_local.bat
+       _BM_BEFORE_ORG\20251214_023950\test_gemini.py
+       _BM_BEFORE_ORG\20251214_023950\websearch.py

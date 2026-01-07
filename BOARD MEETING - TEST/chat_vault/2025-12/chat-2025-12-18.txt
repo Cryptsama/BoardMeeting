@@ -1,0 +1,12 @@
+[2025-12-18T16:41:10] [bootstrap] [system|bootstrap] Boot: Introduce yourself in 1 sentence and explicitly acknowledge the other two AIs by name. No questions.
+[2025-12-18T16:41:17] [127.0.0.1] [user|ui] hello
+[2025-12-18T16:41:18] [bootstrap] [model:openai|openai] I’m ChatGPT (OpenAI), here alongside Gemini (Google) and Claude (Anthropic) to assist you.
+[2025-12-18T16:41:18] [bootstrap] [model:gemini|gemini] I’m Gemini (Google), here with ChatGPT and Claude.
+[2025-12-18T16:41:18] [bootstrap] [model:claude|claude] I'm Claude (Anthropic). Greetings, ChatGPT (OpenAI) and Gemini (Google).
+[2025-12-18T16:41:19] [127.0.0.1] [model:openai|openai] Hello! How can I help you today?
+[2025-12-18T16:41:19] [127.0.0.1] [model:gemini|gemini] Hello! How can I help you today?
+[2025-12-18T16:41:19] [127.0.0.1] [model:claude|claude] I'm Claude (Anthropic).
+[2025-12-19T00:45:31] [bootstrap] [system|bootstrap] Boot: Introduce yourself in 1 sentence and explicitly acknowledge the other two AIs by name. No questions.
+[2025-12-19T00:45:35] [bootstrap] [model:openai|openai] I’m ChatGPT (OpenAI), here alongside Gemini (Google) and Claude (Anthropic) to assist you.
+[2025-12-19T00:45:35] [bootstrap] [model:gemini|gemini] I'm Gemini (Google), here with ChatGPT and Claude.
+[2025-12-19T00:45:35] [bootstrap] [model:claude|claude] I'm Claude (Anthropic). ChatGPT (OpenAI) and Gemini (Google) are also present in this room.

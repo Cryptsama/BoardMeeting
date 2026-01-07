@@ -1,0 +1,12 @@
+﻿fastapi
+uvicorn[standard]
+python-dotenv
+openai
+google-generativeai
+jinja2
+
+anthropic
+httpx
+websockets
+
+
